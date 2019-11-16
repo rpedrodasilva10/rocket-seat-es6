@@ -1,11 +1,16 @@
-alert("teste");
-
-class Teste {
-    metodo() {
-
+class TodoList {
+    constructor() {
+        this.todos = [];
     }
 
-    outrometodo() {
-
+    addTodo() {
+        this.todos.push('Novo todo');
+        console.log(this.todos);
     }
+}
+
+const MinhaLista = new TodoList();
+
+document.getElementById('novotodo').onclick = function () {
+    MinhaLista.addTodo();
 }
