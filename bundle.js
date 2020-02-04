@@ -114,4 +114,104 @@ console.log(idades); //ex2.2
 var users = usuarios.filter(function (item) {
   return item.idade >= 18 && item.empresa === "Rocketseat";
 });
-console.log(users);
+console.log(users); //ex2.3 Crie uma variável que procura por um usuário que trabalhe na empresa Google
+
+var googleWorker = usuarios.find(function (usuario) {
+  return usuario.empresa == 'Google';
+});
+console.log(googleWorker); // 3.1
+
+var arr = [1, 2, 3, 4, 5]; // arr.map(function(item) {
+//  return item + 10;
+// });
+
+console.log(arr.map(function (item) {
+  return item + 10;
+})); // 3.2
+// Dica: Utilize uma constante pra function
+
+var usuario = {
+  nome: 'Diego',
+  idade: 23
+};
+
+var mostraIdade = function mostraIdade(usr) {
+  return usr.idade;
+};
+/*function mostraIdade(usuario) {
+ return usuario.idade;
+}*/
+
+
+console.log(mostraIdade(usuario)); // // 3.3
+// /*// Dica: Utilize uma constante pra function
+// const nome = "Diego";
+// const idade = 23;
+// const mostraUsuario = (nome = 'Diego', idade = 18) =>  {return { nome, idade}};
+// /*function mostraUsuario(nome = 'Diego', idade = 18) {
+//  return { nome, idade };
+// }*/
+// console.log(mostraUsuario(nome, idade));
+// console.log(mostraUsuario(nome));
+// 3.4
+
+var promise2 = function promise2() {
+  return new Promise(function (resolve, reject) {
+    return resolve();
+  });
+};
+
+var promise = function promise() {
+  return new Promise(function (resolve, reject) {
+    return resolve();
+  });
+};
+
+console.log(promise2);
+console.log(promise); //4.1 Desestruturação simples
+//A partir do seguinte objeto:
+
+var empresa = {
+  nome: 'Rocketseat',
+  endereco: {
+    cidade: 'Rio do Sul',
+    estado: 'SC'
+  }
+}; ///Utilize a desestruturação para transformar as propriedades nome, cidade e estado em variáveis, no
+//fim deve ser possível fazer o seguinte:
+//var { title: englishTitle, translations: [{ title: localeTitle }] } = metadata;
+
+var nome = empresa.nome,
+    _empresa$endereco = empresa.endereco,
+    cidade = _empresa$endereco.cidade,
+    estado = _empresa$endereco.estado; //const { cidade, estado } = empresa.endereco
+
+console.log(nome); // Rocketseat
+
+console.log(cidade); // Rio do Sul
+
+console.log(estado); // SC
+// 4.2 Desestruturação em parâmetros
+// Na seguinte função:
+
+function mostraInfo(usuario) {
+  var nome = usuario.nome,
+      idade = usuario.idade; //return `${usuario.nome} tem ${usuario.idade} anos.`;
+
+  return "".concat(nome, " tem ").concat(idade, " anos.");
+}
+
+console.log(mostraInfo({
+  nome: 'Diego',
+  idade: 23
+})); // Utilize a desestruturação nos parâmetros da função para buscar o nome e idade do usuário
+// separadamente e a função poder retornar apenas:
+//return `${nome} tem ${idade} anos.`;
+//5.1 Rest
+//A partir do array: const arr = [1, 2, 3, 4, 5, 6], defina uma variável x que recebe a primeira
+//posição do vetor e outra variável y que recebe todo restante dos dados.
+
+var arr1 = [1, 2, 3, 4, 5, 6];
+var x = arr1[0],
+    y = arr1.slice(1);
+console.log(x, y);
