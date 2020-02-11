@@ -126,7 +126,7 @@ console.log(estado); // SC
 // 4.2 Desestruturação em parâmetros
 // Na seguinte função:
 function mostraInfo(usuario) {
-   var {nome, idade} = usuario
+   let {nome, idade} = usuario
  //return `${usuario.nome} tem ${usuario.idade} anos.`;
  return `${nome} tem ${idade} anos.`;
 }
@@ -145,3 +145,63 @@ const arr1 = [1, 2, 3, 4, 5, 6]
 const [x, ...y] = arr1
 
 console.log(x, y)
+// 5.2
+// Crie uma função que recebe inúmeros parâmetros e retorna a soma de todos eles:
+
+function somaVarios(...params) {
+    const aValores = [...params]
+    
+    console.log(aValores.reduce((total, valor) => total+valor))
+}
+
+somaVarios(1,2,3,4)
+somaVarios(1,2)
+
+// 5.3
+// A partir do objeto e utilizando o operador spread:
+const obj = {
+ nome: 'Diego',
+ idade: 23,
+ endereco: {
+ cidade: 'Rio do Sul',
+ uf: 'SC',
+ pais: 'Brasil',
+ }
+};
+
+
+// Crie uma variável usuario2 que contenha todos os dados do usuário porém com nome Gabriel.
+const usr2 = {
+    ...obj,
+    nome: 'Gabriel', 
+    
+}
+console.log(usr2)
+// Crie uma variável usuario3 que contenha todos os dados do usuário porém com cidade Lontras.
+
+const usr3 = {
+    ...obj,
+    endereco: {
+        ...obj.endereco,
+        cidade: 'Lontras'
+    }
+}
+console.log(usr3)
+
+//6º Exercício
+///Converta o seguinte trecho de código utilizando Template Literals:
+const us = 'Diego';
+let idade = 23;
+console.log(`O usuário ${us} possui ${idade} anos`);
+
+
+//Utilize a sintaxe curta de objetos (Object Short Syntax) no seguinte objeto:
+nome = 'Diego';
+idade = 23;
+const user5 = {
+ nome,
+ idade,
+ cidade: 'Rio do Sul',
+}
+
+console.log(user5)
